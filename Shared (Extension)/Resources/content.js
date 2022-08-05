@@ -1,21 +1,32 @@
-let adsHidden = 0;
-let runs = 0;
-let adSelector = "div[data-testid=top-impression-pixel]";
-let sidebarSelector = "div[data-testid=sidebarColumn]";
-let messagesSelector = "div[data-testid=DMDrawer]";
-let followSelector = "div[data-testid=primaryColumn] div[data-testid=UserCell]";
-let topicsSelector = "div[aria-label='Timeline: Carousel']";
+const adSelector = "div[data-testid=top-impression-pixel]";
+const sidebarSelector = "div[data-testid=sidebarColumn]";
+const searchSelector = "form[aria-label='Search Twitter']";
+const happeningSelector = "div[aria-label='Timeline: Trending now']";
+const followSidebarSelector = "aside[aria-label='Who to follow']";
+const footerSelector = "nav[aria-label='Footer']";
+const messagesSelector = "div[data-testid=DMDrawer]";
+const followSelector =
+  "div[data-testid=primaryColumn] div[data-testid=UserCell]";
+const topicsSelector = "div[aria-label='Timeline: Carousel']";
+
 new MutationObserver(() => {
   document.querySelectorAll(adSelector).forEach((ad) => {
     // Twitter detects if you take down the whole tweet, so we are removing its direct child (:
     window.location.href.split("?")[0].split("/").pop() === "home"
       ? ad.parentElement.parentElement.parentElement.remove()
       : ad.parentElement.parentElement.parentElement.parentElement.remove();
-    adsHidden++;
   });
-  const sidebar = document.querySelector(sidebarSelector);
-  if (sidebar) {
-    sidebar.remove();
+  const happening = document.querySelector(happeningSelector);
+  if (happening) {
+    happening.parentElement.parentElement.parentElement.remove();
+  }
+  const followSidebar = document.querySelector(followSidebarSelector);
+  if (followSidebar) {
+    followSidebar.parentElement.remove();
+  }
+  const footer = document.querySelector(footerSelector);
+  if (footer) {
+    footer.parentElement.remove();
   }
   const messages = document.querySelector(messagesSelector);
   if (messages) {
@@ -34,12 +45,28 @@ new MutationObserver(() => {
   if (window.location.href.split("?")[0].split("/").pop() !== "topics") {
     const topics = document.querySelector(topicsSelector);
     if (topics) {
-      topics.parentElement.parentElement.parentElement.parentElement.previousElementSibling.firstChild.remove();
-      topics.parentElement.parentElement.parentElement.parentElement.nextElementSibling.firstChild.remove();
-      topics.parentElement.parentElement.parentElement.remove();
+      const title =
+        topics.parentElement.parentElement.parentElement.parentElement
+          .previousElementSibling.firstChild;
+      const showMore =
+        topics.parentElement.parentElement.parentElement.parentElement
+          .nextElementSibling.firstChild;
+      if (title && showMore) {
+        title.remove();
+        showMore.remove();
+        topics.parentElement.parentElement.parentElement.remove();
+      }
     }
   }
-  console.log(`Runs: ${++runs}, Ads hidden: ${adsHidden}`);
+  /* const sidebar = document.querySelector(sidebarSelector);
+  if (sidebar) {
+    sidebar.remove();
+  }
+  const search = document.querySelector(searchSelector);
+  if (search) {
+    search.parentElement.parentElement.parentElement.parentElement.nextElementSibling.remove();
+    search.parentElement.parentElement.parentElement.parentElement.remove();
+  } */
 }).observe(document.body, {
   subtree: true,
   childList: true,

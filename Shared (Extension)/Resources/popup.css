@@ -3,8 +3,8 @@
 }
 
 body {
+  min-width: 250px;
   padding: 10px;
-
   font-family: system-ui;
   text-align: center;
 }

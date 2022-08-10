@@ -7,6 +7,8 @@ const footerSelector = "nav[aria-label='Footer']";
 const messagesSelector = "div[data-testid=DMDrawer]";
 const followSelector =
   "div[data-testid=primaryColumn] div[data-testid=UserCell]";
+const listsSelector =
+  "div[data-testid=primaryColumn] div[data-testid=listCell]";
 const topicsSelector = "div[aria-label='Timeline: Carousel']";
 
 new MutationObserver(() => {
@@ -33,40 +35,42 @@ new MutationObserver(() => {
     messages.remove();
   }
   if (window.location.href.split("?")[0].split("/").pop() !== "explore") {
-    const follow = document.querySelectorAll(followSelector);
-    if (follow.length === 3) {
-      follow[0].parentElement.parentElement.parentElement.previousElementSibling.firstChild.remove();
-      follow[2].parentElement.parentElement.parentElement.nextElementSibling.firstChild.remove();
-      follow.forEach((f) => {
-        f.parentElement.parentElement.remove();
-      });
-    }
+    document.querySelectorAll(followSelector).forEach((f) => {
+      f.parentElement.parentElement.parentElement.previousElementSibling.style.display =
+        "none";
+      f.parentElement.parentElement.parentElement.style.display = "none";
+      f.parentElement.parentElement.parentElement.nextElementSibling.style.display =
+        "none";
+      f.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.style.display =
+        "none";
+    });
+  }
+  if (window.location.href.split("?")[0].split("/").pop() !== "lists") {
+    document.querySelectorAll(listsSelector).forEach((f) => {
+      f.parentElement.parentElement.parentElement.previousElementSibling.previousElementSibling.style.display =
+        "none";
+      f.parentElement.parentElement.parentElement.previousElementSibling.style.display =
+        "none";
+      f.parentElement.parentElement.parentElement.style.display = "none";
+      f.parentElement.parentElement.parentElement.nextElementSibling.style.display =
+        "none";
+      f.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.style.display =
+        "none";
+    });
   }
   if (window.location.href.split("?")[0].split("/").pop() !== "topics") {
     const topics = document.querySelector(topicsSelector);
-    if (topics) {
-      const title =
-        topics.parentElement.parentElement.parentElement.parentElement
-          .previousElementSibling.firstChild;
-      const showMore =
-        topics.parentElement.parentElement.parentElement.parentElement
-          .nextElementSibling.firstChild;
-      if (title && showMore) {
-        title.remove();
-        showMore.remove();
-        topics.parentElement.parentElement.parentElement.remove();
-      }
-    }
+    topics.parentElement.parentElement.parentElement.parentElement.previousElementSibling.style.display =
+      "none";
+    topics.parentElement.parentElement.parentElement.parentElement.style.display =
+      "none";
+    topics.parentElement.parentElement.parentElement.parentElement.nextElementSibling.style.display =
+      "none";
+    topics.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.style.display =
+      "none";
+    topics.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.style.display =
+      "none";
   }
-  /* const sidebar = document.querySelector(sidebarSelector);
-  if (sidebar) {
-    sidebar.remove();
-  }
-  const search = document.querySelector(searchSelector);
-  if (search) {
-    search.parentElement.parentElement.parentElement.parentElement.nextElementSibling.remove();
-    search.parentElement.parentElement.parentElement.parentElement.remove();
-  } */
 }).observe(document.body, {
   subtree: true,
   childList: true,

@@ -29,8 +29,6 @@
 		647A4F8F289AFC0700EBBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 647A4F45289AFC0700EBBAFE /* Assets.xcassets */; };
 		647A4F90289AFC0700EBBAFE /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647A4F47289AFC0700EBBAFE /* SafariWebExtensionHandler.swift */; };
 		647A4F91289AFC0700EBBAFE /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647A4F47289AFC0700EBBAFE /* SafariWebExtensionHandler.swift */; };
-		647A4F92289AFC0700EBBAFE /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 647A4F49289AFC0700EBBAFE /* _locales */; };
-		647A4F93289AFC0700EBBAFE /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 647A4F49289AFC0700EBBAFE /* _locales */; };
 		647A4F94289AFC0700EBBAFE /* images in Resources */ = {isa = PBXBuildFile; fileRef = 647A4F4A289AFC0700EBBAFE /* images */; };
 		647A4F95289AFC0700EBBAFE /* images in Resources */ = {isa = PBXBuildFile; fileRef = 647A4F4A289AFC0700EBBAFE /* images */; };
 		647A4F96289AFC0700EBBAFE /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 647A4F4B289AFC0700EBBAFE /* manifest.json */; };
@@ -93,7 +91,6 @@
 		647A4F44289AFC0000EBBAFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		647A4F45289AFC0700EBBAFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		647A4F47289AFC0700EBBAFE /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		647A4F49289AFC0700EBBAFE /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
 		647A4F4A289AFC0700EBBAFE /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		647A4F4B289AFC0700EBBAFE /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
 		647A4F4D289AFC0700EBBAFE /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
@@ -194,7 +191,6 @@
 		647A4F48289AFC0700EBBAFE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				647A4F49289AFC0700EBBAFE /* _locales */,
 				647A4F4A289AFC0700EBBAFE /* images */,
 				647A4F4B289AFC0700EBBAFE /* manifest.json */,
 				647A4F4D289AFC0700EBBAFE /* content.js */,
@@ -410,7 +406,6 @@
 				647A4F9C289AFC0700EBBAFE /* popup.html in Resources */,
 				647A4F94289AFC0700EBBAFE /* images in Resources */,
 				647A4F96289AFC0700EBBAFE /* manifest.json in Resources */,
-				647A4F92289AFC0700EBBAFE /* _locales in Resources */,
 				647A4F9A289AFC0700EBBAFE /* content.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,7 +418,6 @@
 				647A4F9D289AFC0700EBBAFE /* popup.html in Resources */,
 				647A4F95289AFC0700EBBAFE /* images in Resources */,
 				647A4F97289AFC0700EBBAFE /* manifest.json in Resources */,
-				647A4F93289AFC0700EBBAFE /* _locales in Resources */,
 				647A4F9B289AFC0700EBBAFE /* content.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

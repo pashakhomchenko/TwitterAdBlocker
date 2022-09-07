@@ -10,4 +10,4 @@ If you have suggestions on how to improve CleanTwitter, email me at devdevdev808
 
 ## How does it work?
 
-This extenstion blocks the annoying parts of Twitter UI by utilizing content scripts
+This extenstion blocks the annoying parts of Twitter UI by utilizing [content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts). Essentially, we inject a JS script into Twitter webpage that finds unwanted elements and then deletes or hides them.

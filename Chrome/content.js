@@ -38,7 +38,10 @@ new MutationObserver(() => {
   }
   if (
     !window.location.href.includes("explore") &&
-    !window.location.href.includes("connect_people")
+    !window.location.href.includes("connect_people") &&
+    !window.location.href.includes("followers_you_follow") &&
+    !window.location.href.includes("followers") &&
+    !window.location.href.includes("following")
   ) {
     document.querySelectorAll(followSelector).forEach((f) => {
       if (

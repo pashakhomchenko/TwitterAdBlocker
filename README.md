@@ -6,7 +6,7 @@ Focus on tweets instead of irrelevant ads, people, news and topics. Enjoy Twitte
 
 **We don't collect any information about you**. All of the source code is contained in this repository and it doens't rely on any remote code. Check Chrome and Safari folders for the respective project files.
 
-If you have suggestions on how to improve Twitter Ad Blocker, email me at [devdevdev808@gmail.com](mailto:devdevdev808@gmail.com?subject=[Twitter Ad Blocker]) or create a new issue above!
+If you have suggestions on how to improve Twitter Ad Blocker, email me at [devdevdev808@gmail.com](mailto:devdevdev808@gmail.com?subject=Twitter Ad Blocker) or create a new issue above!
 
 ## How does it work?
 

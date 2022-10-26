@@ -16,17 +16,15 @@ const topicsSelector =
 new MutationObserver(() => {
   document.querySelectorAll(adSelector).forEach((ad) => {
     // Twitter detects if you take down the whole tweet, so we are removing its direct child (:
-    window.location.href.includes("home")
-      ? ad.parentElement.parentElement.parentElement.remove()
-      : ad.parentElement.parentElement.parentElement.parentElement.remove();
+    ad.parentElement.parentElement.parentElement.remove();
   });
-  const happening = document.querySelector(happeningSelector);
-  if (happening) {
-    happening.parentElement.parentElement.parentElement.remove();
-  }
   const followSidebar = document.querySelector(followSidebarSelector);
   if (followSidebar) {
     followSidebar.parentElement.remove();
+  }
+  const happening = document.querySelector(happeningSelector);
+  if (happening?.parentElement.parentElement.parentElement) {
+    happening.parentElement.parentElement.parentElement.remove();
   }
   const footer = document.querySelector(footerSelector);
   if (footer) {

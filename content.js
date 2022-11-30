@@ -18,18 +18,23 @@ new MutationObserver(() => {
     // Twitter detects if you take down the whole tweet, so we are removing its direct child (:
     ad.parentElement.parentElement.parentElement.remove();
   });
-  const followSidebar = document.querySelector(followSidebarSelector);
-  if (followSidebar) {
-    followSidebar.parentElement.remove();
+  const sidebar = document.querySelector(sidebarSelector);
+  if (sidebar) {
+    sidebar.remove();
   }
-  const happening = document.querySelector(happeningSelector);
-  if (happening?.parentElement.parentElement.parentElement) {
-    happening.parentElement.parentElement.parentElement.remove();
-  }
-  const footer = document.querySelector(footerSelector);
-  if (footer) {
-    footer.parentElement.remove();
-  }
+  /* if (
+    sidebar?.childNodes[0]?.childNodes[1]?.childNodes[0]?.childNodes[0]
+      ?.childNodes[0]?.childNodes?.length >= 5
+  ) {
+    const sidebarChildren =
+      sidebar.childNodes[0].childNodes[1].childNodes[0].childNodes[0]
+        .childNodes[0].childNodes;
+    setTimeout(() => {
+      sidebarChildren[2].remove();
+      sidebarChildren[3].remove();
+      sidebarChildren[4].remove();
+    }, 50);
+  } */
   const messages = document.querySelector(messagesSelector);
   if (messages) {
     messages.remove();

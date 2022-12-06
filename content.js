@@ -19,22 +19,30 @@ new MutationObserver(() => {
     ad.parentElement.parentElement.parentElement.remove();
   });
   const sidebar = document.querySelector(sidebarSelector);
-  if (sidebar) {
-    sidebar.remove();
-  }
-  /* if (
+  if (
     sidebar?.childNodes[0]?.childNodes[1]?.childNodes[0]?.childNodes[0]
-      ?.childNodes[0]?.childNodes?.length >= 5
+      ?.childNodes[0]?.childNodes?.length == 5
   ) {
     const sidebarChildren =
       sidebar.childNodes[0].childNodes[1].childNodes[0].childNodes[0]
         .childNodes[0].childNodes;
-    setTimeout(() => {
-      sidebarChildren[2].remove();
-      sidebarChildren[3].remove();
-      sidebarChildren[4].remove();
-    }, 50);
-  } */
+    console.log(sidebarChildren);
+    sidebarChildren[4].remove();
+    sidebarChildren[3].remove();
+    sidebarChildren[2].remove();
+  }
+  if (
+    sidebar?.childNodes[0]?.childNodes[1]?.childNodes[0]?.childNodes[0]
+      ?.childNodes[0]?.childNodes?.length == 6
+  ) {
+    const sidebarChildren =
+      sidebar.childNodes[0].childNodes[1].childNodes[0].childNodes[0]
+        .childNodes[0].childNodes;
+    console.log(sidebarChildren);
+    sidebarChildren[5].remove();
+    sidebarChildren[4].remove();
+    sidebarChildren[3].remove();
+  }
   const messages = document.querySelector(messagesSelector);
   if (messages) {
     messages.remove();

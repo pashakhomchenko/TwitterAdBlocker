@@ -26,7 +26,6 @@ new MutationObserver(() => {
     const sidebarChildren =
       sidebar.childNodes[0].childNodes[1].childNodes[0].childNodes[0]
         .childNodes[0].childNodes;
-    console.log(sidebarChildren);
     sidebarChildren[4].remove();
     sidebarChildren[3].remove();
     sidebarChildren[2].remove();

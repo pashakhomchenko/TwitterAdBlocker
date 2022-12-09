@@ -21,6 +21,18 @@ new MutationObserver(() => {
   const sidebar = document.querySelector(sidebarSelector);
   if (
     sidebar?.childNodes[0]?.childNodes[1]?.childNodes[0]?.childNodes[0]
+      ?.childNodes[0]?.childNodes?.length == 4
+  ) {
+    const sidebarChildren =
+      sidebar.childNodes[0].childNodes[1].childNodes[0].childNodes[0]
+        .childNodes[0].childNodes;
+    sidebarChildren[3].remove();
+    sidebarChildren[2].remove();
+    sidebarChildren[1].remove();
+    sidebarChildren[0].remove();
+  }
+  if (
+    sidebar?.childNodes[0]?.childNodes[1]?.childNodes[0]?.childNodes[0]
       ?.childNodes[0]?.childNodes?.length == 5
   ) {
     const sidebarChildren =

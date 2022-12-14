@@ -1,17 +1,10 @@
 const adSelector = "div[data-testid=top-impression-pixel]";
 const sidebarSelector = "div[data-testid=sidebarColumn]";
-const searchSelector = "form[aria-label='Search Twitter']";
-const happeningSelector =
-  "div[data-testid=sidebarColumn] div[aria-label='Timeline: Trending now']";
-const followSidebarSelector = "aside[aria-label='Who to follow']";
-const footerSelector = "nav[aria-label='Footer']";
 const messagesSelector = "div[data-testid=DMDrawer]";
 const followSelector =
   "div[data-testid=primaryColumn] div[data-testid=UserCell]";
 const listsSelector =
   "div[data-testid=primaryColumn] div[data-testid=listCell]";
-const topicsSelector =
-  "div[data-testid=primaryColumn] div[aria-label='Timeline: Carousel']";
 
 new MutationObserver(() => {
   document.querySelectorAll(adSelector).forEach((ad) => {
@@ -23,13 +16,10 @@ new MutationObserver(() => {
     sidebar?.childNodes[0]?.childNodes[1]?.childNodes[0]?.childNodes[0]
       ?.childNodes[0]?.childNodes?.length == 4
   ) {
-    const sidebarChildren =
+    const sidebarContent =
       sidebar.childNodes[0].childNodes[1].childNodes[0].childNodes[0]
-        .childNodes[0].childNodes;
-    sidebarChildren[3].remove();
-    sidebarChildren[2].remove();
-    sidebarChildren[1].remove();
-    sidebarChildren[0].remove();
+        .childNodes[0];
+    sidebarContent.remove();
   }
   if (
     sidebar?.childNodes[0]?.childNodes[1]?.childNodes[0]?.childNodes[0]
@@ -49,7 +39,6 @@ new MutationObserver(() => {
     const sidebarChildren =
       sidebar.childNodes[0].childNodes[1].childNodes[0].childNodes[0]
         .childNodes[0].childNodes;
-    console.log(sidebarChildren);
     sidebarChildren[5].remove();
     sidebarChildren[4].remove();
     sidebarChildren[3].remove();
@@ -93,24 +82,6 @@ new MutationObserver(() => {
       f.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.style.display =
         "none";
     });
-  }
-  if (!window.location.href.includes("topics")) {
-    const topics = document.querySelector(topicsSelector);
-    if (
-      topics?.parentElement.parentElement.parentElement.parentElement
-        .previousElementSibling &&
-      topics?.parentElement.parentElement.parentElement.parentElement
-        .nextElementSibling?.nextElementSibling
-    ) {
-      topics.parentElement.parentElement.parentElement.parentElement.previousElementSibling.style.display =
-        "none";
-      topics.parentElement.parentElement.parentElement.parentElement.style.display =
-        "none";
-      topics.parentElement.parentElement.parentElement.parentElement.nextElementSibling.style.display =
-        "none";
-      topics.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.style.display =
-        "none";
-    }
   }
 }).observe(document.body, {
   subtree: true,

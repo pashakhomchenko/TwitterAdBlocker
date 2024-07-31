@@ -5,10 +5,11 @@ const followSelector =
   "div[data-testid=primaryColumn] div[data-testid=UserCell]";
 const listsSelector =
   "div[data-testid=primaryColumn] div[data-testid=listCell]";
+const premiumSelector = "aside[aria-label='Subscribe to Premium']";
 
 new MutationObserver(() => {
   document.querySelectorAll(adSelector).forEach((ad) => {
-    // Twitter detects if you take down the whole tweet, so we are removing its direct child (:
+    // Twitter/X detects if you take down the whole tweet, so we are removing its direct child (:
     ad.parentElement.parentElement.parentElement.remove();
   });
   const sidebar = document.querySelector(sidebarSelector);
@@ -82,6 +83,10 @@ new MutationObserver(() => {
       f.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.style.display =
         "none";
     });
+  }
+  const premiumAside = document.querySelector(premiumSelector);
+  if (premiumAside) {
+    premiumAside.parentElement.parentElement.remove();
   }
 }).observe(document.body, {
   subtree: true,

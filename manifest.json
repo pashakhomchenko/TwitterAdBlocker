@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Twitter Ad Blocker",
-  "version": "0.0.6",
+  "name": "Twitter/X Ad Blocker",
+  "version": "0.0.7",
 
-  "description": "Block Twitter ads and annoying UI elements.",
+  "description": "Block Twitter/X ads and annoying UI elements.",
 
   "icons": {
     "16": "images/icon-16.png",
@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "js": ["content.js"],
-      "matches": ["*://*.twitter.com/*"]
+      "matches": ["*://*.twitter.com/*", "*://*.x.com/*"]
     }
   ],
 

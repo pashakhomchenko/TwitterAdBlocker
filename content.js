@@ -5,49 +5,38 @@ const followSelector =
   "div[data-testid=primaryColumn] div[data-testid=UserCell]";
 const listsSelector =
   "div[data-testid=primaryColumn] div[data-testid=listCell]";
-const premiumSelector = "aside[aria-label='Subscribe to Premium']";
+
+function removeSidebarContent(sidebarContent) {
+  for (let i = 2; i < sidebarContent.length; i++) {
+    sidebarContent[i].remove();
+  }
+}
 
 new MutationObserver(() => {
   document.querySelectorAll(adSelector).forEach((ad) => {
     // Twitter/X detects if you take down the whole tweet, so we are removing its direct child (:
     ad.parentElement.parentElement.parentElement.remove();
   });
+
   const sidebar = document.querySelector(sidebarSelector);
-  if (
+  var sidebarContent =
     sidebar?.childNodes[0]?.childNodes[1]?.childNodes[0]?.childNodes[0]
-      ?.childNodes[0]?.childNodes?.length == 4
-  ) {
-    const sidebarContent =
-      sidebar.childNodes[0].childNodes[1].childNodes[0].childNodes[0]
-        .childNodes[0];
-    sidebarContent.remove();
+      ?.childNodes[0]?.childNodes;
+
+  // Different pages have different sidebar structure
+  if (sidebarContent?.length > 2) {
+    removeSidebarContent(sidebarContent);
   }
-  if (
-    sidebar?.childNodes[0]?.childNodes[1]?.childNodes[0]?.childNodes[0]
-      ?.childNodes[0]?.childNodes?.length == 5
-  ) {
-    const sidebarChildren =
-      sidebar.childNodes[0].childNodes[1].childNodes[0].childNodes[0]
-        .childNodes[0].childNodes;
-    sidebarChildren[4].remove();
-    sidebarChildren[3].remove();
-    sidebarChildren[2].remove();
+  if (sidebarContent?.length == 1 && sidebarContent[0].childNodes.length > 2) {
+    sidebarContent = sidebarContent[0].childNodes;
+    removeSidebarContent(sidebarContent);
   }
-  if (
-    sidebar?.childNodes[0]?.childNodes[1]?.childNodes[0]?.childNodes[0]
-      ?.childNodes[0]?.childNodes?.length == 6
-  ) {
-    const sidebarChildren =
-      sidebar.childNodes[0].childNodes[1].childNodes[0].childNodes[0]
-        .childNodes[0].childNodes;
-    sidebarChildren[5].remove();
-    sidebarChildren[4].remove();
-    sidebarChildren[3].remove();
-  }
+
   const messages = document.querySelector(messagesSelector);
   if (messages) {
     messages.remove();
   }
+
   if (
     !window.location.href.includes("explore") &&
     !window.location.href.includes("connect_people") &&
@@ -83,10 +72,6 @@ new MutationObserver(() => {
       f.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.style.display =
         "none";
     });
-  }
-  const premiumAside = document.querySelector(premiumSelector);
-  if (premiumAside) {
-    premiumAside.parentElement.parentElement.remove();
   }
 }).observe(document.body, {
   subtree: true,
